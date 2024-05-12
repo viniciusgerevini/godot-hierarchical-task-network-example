@@ -1,30 +1,29 @@
-<p align="center"><img src="icon.png"/></p>
+# Hierarchical task network example in Godot
 
-# Starter Kit 3D Platformer
+This is the code source for my video on [Hierarchical Task Networks](add_video_link), a game AI pattern.
 
-This package includes a basic template for a 3D platformer game in Godot 4.1.1.stable.official. Includes features like;
+In this project there is a NPC implementation with the following behaviour:
 
-- Character controller (with double jump)
-- Collectable coins and falling platforms
-- Camera controls (rotate, zoom)
-- Gamepad support
-- Sprites and 3D Models _(CC0 licensed)_
-- Sound effects _(CC0 licensed)_
+- Roam
+- Look at player if too close
+- Get scared and run away if player jumps when close to them
+- Get tired after running away 3 times and rest for a bit
+- Collect coins when available
 
-### Screenshot
+This is a sample project to validate HTNs, but it's not supposed to be production ready. Even though it works, there are a few caveats to consider as mentioned in the video.
 
-<p align="center"><img src="screenshots/screenshot.png"/></p>
+By default, the project is going to run a scene with one NPC. You can run `HTN_main_multiple_agents.tscn` for a scene with multiple NPCs.
 
-### License
+For this project, I used Kenney's 3D Platformer Starter Kit: https://github.com/KenneyNL/Starter-Kit-3D-Platformer
 
-MIT License
+## Contact
 
-Copyright (c) 2023 Kenney
+I'm happy to chat about anything game dev and answer questions about my projects. Feel free to comment on the youtube video for questions and discussions about this project.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Check my website for the latest contact info: https://thisisvini.com
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+My youtube channel for game dev related stuff: https://www.youtube.com/@ThisIsVini
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Currently, you can find me on Mastodon https://mastodon.gamedev.place/@thisisvini
 
-Assets included in this package (2D sprites, 3D models and sound effects) are [CC0 licensed](https://creativecommons.org/publicdomain/zero/1.0/)
+You can also open issues in this project, but keep in mind this is a sample, and even though I intend to keep it working, this is intended to be a demonstration for Godot 4 and I won't be improving it. Happy to chat about them though and discuss workarounds.
