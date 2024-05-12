@@ -1,0 +1,12 @@
+class_name HTNCompoundTask extends HTNBaseTask
+
+## Return an array of methods.
+## method format example:
+## {
+##     "pre_conditions": {
+##         "is_player_nearby": true,
+##     },
+##     "tasks": [WatchPlayerTask.new()],
+## }
+func get_methods() -> Array:
+	return []
