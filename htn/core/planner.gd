@@ -42,38 +42,38 @@ func _setup_plan_runner():
 
 
 func _plan():
-	_state_stack = [_world_state.duplicate()]
-	var plan = _decompose_compound_task(_root, _state_stack)
+	_initialize_working_state()
+	var plan = _decompose_compound_task(_root)
 	if plan.size() > 0:
 		print("New plan")
 		print(plan.map(func(task): return task.get_script().get_path()))
 		_plan_runner.set_plan(plan)
-	_state_stack = []
+	_clear_working_state()
 
 
-func _decompose_compound_task(task: HTNCompoundTask, state_stack: Array) -> Array[HTNTask]:
+func _decompose_compound_task(task: HTNCompoundTask) -> Array[HTNTask]:
 	var methods = task.get_methods()
-	var current_state = state_stack[state_stack.size() - 1] as HTNWorldState
+	var current_state = _current_working_state()
 
 	for method in methods:
 		if _check_conditions(method.pre_conditions, current_state):
-			state_stack.push_back(current_state.duplicate())
-			var decomposed_tasks = _decompose_tasks(method.tasks, state_stack)
+			_save_current_working_state()
+			var decomposed_tasks = _decompose_tasks(method.tasks)
 			if decomposed_tasks.size() == 0:
-				state_stack.pop_back()
+				_restore_previous_state()
 				continue
 			return decomposed_tasks
 
 	return []
 
 
-func _decompose_tasks(tasks: Array, state_stack: Array) -> Array[HTNTask]:
+func _decompose_tasks(tasks: Array) -> Array[HTNTask]:
 	var decomposed_tasks: Array[HTNTask] = []
-	var current_state = state_stack[state_stack.size() - 1] as HTNWorldState
+	var current_state = _current_working_state()
 
 	for child_task in tasks:
 		if child_task is HTNCompoundTask:
-			var t = _decompose_compound_task(child_task, state_stack)
+			var t = _decompose_compound_task(child_task)
 			if t.size() == 0:
 				return []
 			decomposed_tasks.append_array(t)
@@ -105,3 +105,23 @@ func _check_conditions(conditions: Dictionary, world_state: HTNWorldState) -> bo
 
 func get_world_state() -> HTNWorldState:
 	return _world_state
+
+
+func _current_working_state() -> HTNWorldState:
+	return _state_stack[_state_stack.size() - 1]
+
+
+func _initialize_working_state():
+	_state_stack = [_world_state.duplicate()]
+
+
+func _save_current_working_state():
+	_state_stack.push_back(_current_working_state().duplicate())
+
+
+func _restore_previous_state():
+	_state_stack.pop_back()
+
+
+func _clear_working_state():
+	_state_stack = []

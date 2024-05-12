@@ -21,6 +21,7 @@ func execute(delta, actor: Variant) -> TaskResult:
 	var target_position = target if target is Vector3 else target.position
 
 	actor.move_towards_target(delta, target_position)
+
 	if actor.position.distance_to(target_position) <= 1:
 		actor.set_target(null)
 		print("Reached target")

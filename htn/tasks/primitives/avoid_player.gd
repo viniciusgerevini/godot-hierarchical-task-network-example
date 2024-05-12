@@ -22,6 +22,4 @@ func execute(delta, actor: Variant) -> TaskResult:
 		npc.move_towards_target(delta, target)
 		return TaskResult.PROCESSING
 
-
-
 	return TaskResult.SUCCESS
