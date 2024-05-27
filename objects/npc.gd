@@ -152,7 +152,6 @@ func relax():
 	relaxed.emit()
 	if scares > 2:
 		scares = 0
-		print("emit tired")
 		tired.emit()
 
 

@@ -20,3 +20,5 @@ var method_2 = {
 
 func get_methods() -> Array:
 	return [method_1, method_2]
+
+

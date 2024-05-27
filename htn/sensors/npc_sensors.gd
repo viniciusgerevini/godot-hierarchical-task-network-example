@@ -15,6 +15,7 @@ func _initialize(actor: Node):
 	npc.rested.connect(_on_rested)
 	npc.coin_collection_enabled.connect(_leave_coin_collection_cooldown)
 	npc.coin_collection_disabled.connect(_start_coin_collection_cooldown)
+
 	Events.coin_collected.connect(_check_coins)
 	Events.coin_spawned.connect(_check_coins)
 
