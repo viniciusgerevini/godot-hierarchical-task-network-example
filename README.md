@@ -1,6 +1,6 @@
 # Hierarchical task network example in Godot
 
-This is the code source for my video on [Hierarchical Task Networks](add_video_link), a game AI pattern.
+This is the code source for my video on [Hierarchical Task Networks](https://youtu.be/Z7uU94yPfD4), a game AI pattern.
 
 In this project there is a NPC implementation with the following behaviour:
 
@@ -24,6 +24,8 @@ Check my website for the latest contact info: https://thisisvini.com
 
 My youtube channel for game dev related stuff: https://www.youtube.com/@ThisIsVini
 
-Currently, you can find me on Mastodon https://mastodon.gamedev.place/@thisisvini
+Currently, you can find me here:
+- https://mastodon.gamedev.place/@thisisvini
+- https://x.com/vini_gerevini
 
-You can also open issues in this project, but keep in mind this is a sample, and even though I intend to keep it working, this is intended to be a demonstration for Godot 4 and I won't be improving it. Happy to chat about them though and discuss workarounds.
+You can also open issues in this project, but keep in mind this is a sample, and even though I intend to keep it working, this is intended to be a demonstration for Godot 4 and I won't be expanding on it. Happy to chat about them though and discuss workarounds.
