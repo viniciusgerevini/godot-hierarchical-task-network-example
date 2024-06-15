@@ -24,7 +24,6 @@ func execute(delta, actor: Variant) -> TaskResult:
 
 	if actor.position.distance_to(target_position) <= 1:
 		actor.set_target(null)
-		print("Reached target")
 		return TaskResult.SUCCESS
 
 	return TaskResult.PROCESSING
